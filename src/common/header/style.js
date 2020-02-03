@@ -49,18 +49,6 @@ export const NavItem = styled.div`
 export const SearchWrapper = styled.div`
     float: left;
     position: relative;
-    .fuck-enter{
-        transition: all .2s ease-out
-    }
-    .fuck-enter-active{
-        width: 260px;
-    }
-    .fuck-exit{
-        transition: all .2s ease-out
-    }
-    .fuck-exit-active{
-        width: 160px;
-    }
     .iconfont{
         position: absolute;
         right: 5px;
@@ -96,6 +84,18 @@ export const NavSearch = styled.input.attrs({
     }
     &.focused {
         width: 260px;
+    }
+    &.fuck-enter{
+        transition: all .2s ease-out
+    }
+    &.fuck-enter-active{
+        width: 260px;
+    }
+    &.fuck-exit{
+        transition: all .2s ease-out
+    }
+    &.fuck-exit-active{
+        width: 160px;
     }
 `;
 export const Addition = styled.div`
