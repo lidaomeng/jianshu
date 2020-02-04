@@ -10,8 +10,38 @@ import {
     NavSearch,
     Addition,
     Button,
-    SearchWrapper
+    SearchWrapper,
+    SearchInfo,
+    SearchInfoTitle,
+    SearchInfoSwitch,
+    SearchInfoList,
+    SearchInfoItem
 } from './style';
+
+const getListArea = (show) => {
+    if (show) {
+        return (
+            <SearchInfo>
+                       <SearchInfoTitle>
+                           热门搜索
+                           <SearchInfoSwitch>换一批</SearchInfoSwitch>
+                        </SearchInfoTitle> 
+                        <SearchInfoList>
+                            <SearchInfoItem>电影</SearchInfoItem>
+                            <SearchInfoItem>电影</SearchInfoItem>
+                            <SearchInfoItem>电影</SearchInfoItem>
+                            <SearchInfoItem>电影</SearchInfoItem>
+                            <SearchInfoItem>电影</SearchInfoItem>
+                            <SearchInfoItem>电影</SearchInfoItem>
+                            <SearchInfoItem>电影</SearchInfoItem>
+                            <SearchInfoItem>电影</SearchInfoItem>
+                        </SearchInfoList>
+                    </SearchInfo>
+        )
+    } else {
+        return null;
+    }
+}
 
 /*
 无状态组件 Header
@@ -44,6 +74,8 @@ const Header = (props) => {
                         </NavSearch>
                     </CSSTransition>
                     <i className={props.focused ? 'focused iconfont' : 'iconfont'}>&#xe6e4;</i>
+                    {/* 热门搜索 */}
+                    {getListArea(props.focused)}
                 </SearchWrapper>   
                 
             </Nav>
@@ -63,7 +95,7 @@ const Header = (props) => {
  */
 const mapStateToProps = (state) => {
     return {
-        focused: state.header.get('focused')
+        focused: state.getIn(['header', 'focused'])
     }
 }
 /*
