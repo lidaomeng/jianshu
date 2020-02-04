@@ -21,7 +21,7 @@ import {
 
 class Header extends Component{
     getListArea() {
-        const { focused, list, mouseIn, page, totalPage } = this.props;
+        const { focused, list, mouseIn, page, totalPage, handleMouseEnter, handleMouseLeave, handleChangePage } = this.props;
 
         const newList = list.toJS();
         const pageList = [];
@@ -44,12 +44,17 @@ class Header extends Component{
         if (focused || mouseIn) {
             return (
                 <SearchInfo
-                    onMouseEnter={this.props.handleMouseEnter}
-                    onMouseLeave={this.props.handleMouseLeave}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                 >
                     <SearchInfoTitle>
                         热门搜索
-                        <SearchInfoSwitch onClick={() => this.props.handleChangePage(page, totalPage)}>换一批</SearchInfoSwitch>
+                        <SearchInfoSwitch 
+                            onClick={() => handleChangePage(page, totalPage, this.spinIcon)}
+                        >
+                            <i ref={(icon) => {this.spinIcon = icon}} className={'iconfont spin'}>&#xe77d;</i>
+                            换一批
+                        </SearchInfoSwitch>
                     </SearchInfoTitle> 
                     <SearchInfoList>
                         {pageList}
@@ -62,7 +67,7 @@ class Header extends Component{
     }
 
     render() {
-        const { focused, handleInputFocus, handleInputBlur } = this.props;
+        const { focused, list, handleInputFocus, handleInputBlur } = this.props;
         return (
             <HeaderWrapper>
                 <Logo />
@@ -84,12 +89,15 @@ class Header extends Component{
                         >
                             <NavSearch 
                                 className={focused ? 'focused' : ''}
-                                onFocus={handleInputFocus} 
+                                /**
+                                 * () => handleInputFocus(list) 这是什么语法？
+                                 */
+                                onFocus={() => handleInputFocus(list)} 
                                 onBlur={handleInputBlur}
                             >
                             </NavSearch>
                         </CSSTransition>
-                        <i className={focused ? 'focused iconfont' : 'iconfont'}>&#xe6e4;</i>
+                        <i className={focused ? 'focused iconfont zoom' : 'iconfont zoom'}>&#xe6e4;</i>
                         {/* 热门搜索 */}
                         {this.getListArea()}
                     </SearchWrapper>   
@@ -124,8 +132,8 @@ const mapStateToProps = (state) => {
  */
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleInputFocus() {
-            dispatch(actionCreators.getItemList());
+        handleInputFocus(list) {
+            (list.size === 0) && dispatch(actionCreators.getItemList());
             dispatch(actionCreators.searchFocus());
         },
         handleInputBlur() {
@@ -137,7 +145,15 @@ const mapDispatchToProps = (dispatch) => {
         handleMouseLeave() {
             dispatch(actionCreators.mouseLeave());
         },
-        handleChangePage(page, totalPage) { 
+        handleChangePage(page, totalPage, spin) { 
+            let originAngle = spin.style.transform.replace(/[^1-9]/ig, '');
+            if (originAngle) {
+                originAngle = parseInt(originAngle, 10);
+            } else {
+                originAngle = 0;
+            }
+            spin.style.transform = 'rotate('+(originAngle + 360)+'deg)';
+
             if (page < totalPage) {
                 dispatch(actionCreators.changePage(page + 1));
             } else {
