@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import axios from 'axios';
 import {
     HomeWrapper,
     HomeLeft,
@@ -16,7 +18,7 @@ class Home extends Component{
         return (
             <HomeWrapper>
                 <HomeLeft>
-                    <img className='banner-img' src="https://bkimg.cdn.bcebos.com/pic/48540923dd54564eda408285bbde9c82d1584f60?x-bce-process=image/crop,x_0,y_6,w_550,h_363/watermark,g_7,image_d2F0ZXIvYmFpa2U4MA==,xp_5,yp_5" alt="banner"/>
+                    <img className='banner-img' src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1580909702185&di=d7a2114b5231e5810b48c4efe36f044d&imgtype=0&src=http%3A%2F%2Fimage.biaobaiju.com%2Fuploads%2F20181002%2F21%2F1538488618-LcrsoPFKDQ.jpg" alt="banner"/>
                     <Topic />
                     <List />
                 </HomeLeft>
@@ -29,6 +31,32 @@ class Home extends Component{
             </HomeWrapper>
         )
     }
+
+    /**
+     * 钩子
+     */
+    componentDidMount() {
+        axios.get('/api/home.json').then((res) => {
+            const result = res.data.data;
+            console.log("result", result);
+            
+            const action = {
+                type: 'change_home_data',
+                topicList: result.topicList,
+                articleList: result.articleList,
+                recommendList: result.recommendList
+            }
+            this.props.changeHomeData(action);
+        }).catch(() => {
+            console.log("/api/home.json 网络请求错误");
+        });
+    }
 }
 
-export default Home;
+const mapDispatchToProps = (dispatch) => ({
+    changeHomeData(action) {
+        dispatch(action);
+    }
+});
+
+export default connect(null, mapDispatchToProps)(Home);

@@ -25,8 +25,6 @@ export const HomeRight = styled.div`
     float: right;
     width: 280px;
     margin: 0 auto;
-    // background: pink;
-    // margin-left: 40px;
     padding-top: 30px;
     margin-bottom: 40px;
 `;
@@ -207,4 +205,5 @@ export const ViewAllWrapper = styled.div`
     color: #787878;
     text-align: center;
     background: #f7f7f7;
+    border-radius: 6px;
 `;

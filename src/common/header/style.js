@@ -23,7 +23,6 @@ export const Nav = styled.div`
     width: 945px;
     height: 58px;
     margin: 0 auto;
-    // background: pink;
 `;
 
 export const NavItem = styled.div`
@@ -70,11 +69,11 @@ export const SearchInfo = styled.div`
     position: absolute;
     left: 0;
     top: 58px;
-    // height: 100px;
     padding: 0 20px;
     width: 260px;
     border-radius: 10px;
-    box-shadow: 0 0 8px rgba(0,0,0,.2)
+    box-shadow: 0 0 8px rgba(0,0,0,.2);
+    background: #fff;
 `;
 
 export const SearchInfoTitle = styled.div`
