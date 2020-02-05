@@ -23,9 +23,11 @@ export const HomeLeft = styled.div`
 
 export const HomeRight = styled.div`
     float: right;
-    width: 240px;
+    width: 280px;
     margin: 0 auto;
-    background: #0ff;
+    // background: pink;
+    // margin-left: 40px;
+    padding-top: 30px;
 `;
 
 /**
@@ -88,4 +90,19 @@ export const ListInfo = styled.div`
         font-size: 13px;
         color: #999;
     }
+`;
+
+/**
+ * 推荐部分
+ */
+export const RecommendWrapper = styled.div`
+    margin-top: -4px;
+    padding-bottom: 4px;
+    // background: #bfa;
+`;
+export const RecommendItem = styled.div`
+    width: 280px;
+    height: 50px;
+    background: url(${(props) => props.imgUrl});
+    background-size: contain;
 `;
