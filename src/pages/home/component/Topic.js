@@ -22,8 +22,7 @@ class Topic extends Component{
                             {item.get('title')}
                         </TopicItem>
                     ))
-                }
-                
+                }   
             </TopicWrapper>
         )
     }

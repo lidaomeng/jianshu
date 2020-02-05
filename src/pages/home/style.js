@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+/**
+ * 首页部分
+ */
 export const HomeWrapper = styled.div`
     overflow: hidden;
     width: 960px;
@@ -25,12 +28,14 @@ export const HomeRight = styled.div`
     background: #0ff;
 `;
 
+/**
+ * 标题部分
+ */
 export const TopicWrapper = styled.div`
     overflow: hidden;
     padding: 20px 0 10px 0;
     margin-left: -18px;
-
-    // background: #0ff;
+    border-bottom: 1px solid #dcdcdc;
 `;
 
 export const TopicItem = styled.div`
@@ -51,5 +56,36 @@ export const TopicItem = styled.div`
         height: 32px;
         width: 32px;
         margin-right: 10px;
+    }
+`;
+
+/**
+ * 列表部分
+ */
+export const ListItem = styled.div`
+    padding: 20px 0;
+    border-bottom: 1px solid #dcdcdc;
+    overflow: hidden;
+    .list-pic{
+        display: block;
+        float: right;
+        width: 125px;
+        height: 100px;
+        border-radius: 10px;
+    }
+`;
+export const ListInfo = styled.div`
+    width: 458px;
+    // float: left;
+    .title{
+        line-height: 27px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+    }
+    .desc{
+        line-height: 24px;
+        font-size: 13px;
+        color: #999;
     }
 `;

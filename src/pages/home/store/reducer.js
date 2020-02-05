@@ -33,6 +33,28 @@ const defaultStore = fromJS({
         id: 8,
         title: '大闹天宫',
         imgUrl: 'https://bkimg.cdn.bcebos.com/pic/7a899e510fb30f24a38c2647cf95d143ad4b0364?x-bce-process=image/resize,m_lfit,w_500,h_500,limit_1'
+    }],
+
+    articleList: [{
+        id: 1,
+        imgUrl: '//upload-images.jianshu.io/upload_images/16003352-7d0f77465120a55b.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240',
+        title: '情话攒了那许久，你确定不进来看看么',
+        desc: '从各个地方看到的，于是攒下来， 闲来时看看，心情也瞬间美好起来。 1、 如果你非要拒绝我，请不要那么绝对。 因为你的一句“我没有那么喜欢你”， ...'
+    },{
+        id: 2,
+        imgUrl: '//upload-images.jianshu.io/upload_images/16003352-7d0f77465120a55b.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240',
+        title: '情话攒了那许久，你确定不进来看看么',
+        desc: '从各个地方看到的，于是攒下来， 闲来时看看，心情也瞬间美好起来。 1、 如果你非要拒绝我，请不要那么绝对。 因为你的一句“我没有那么喜欢你”， ...'
+    },{
+        id: 3,
+        imgUrl: '//upload-images.jianshu.io/upload_images/16003352-7d0f77465120a55b.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240',
+        title: '情话攒了那许久，你确定不进来看看么',
+        desc: '从各个地方看到的，于是攒下来， 闲来时看看，心情也瞬间美好起来。 1、 如果你非要拒绝我，请不要那么绝对。 因为你的一句“我没有那么喜欢你”， ...'
+    },{
+        id: 4,
+        imgUrl: '//upload-images.jianshu.io/upload_images/16003352-7d0f77465120a55b.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240',
+        title: '情话攒了那许久，你确定不进来看看么',
+        desc: '从各个地方看到的，于是攒下来， 闲来时看看，心情也瞬间美好起来。 1、 如果你非要拒绝我，请不要那么绝对。 因为你的一句“我没有那么喜欢你”， ...'
     }]
 });
 
