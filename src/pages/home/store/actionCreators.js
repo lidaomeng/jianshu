@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { CHANGE_HOME_DATA } from './constants'
+import { fromJS } from 'immutable'; 
+import { CHANGE_HOME_DATA, ADD_ARTICLE_DATA } from './constants';
 
 const changeHomeData = (result) => ({
     type: CHANGE_HOME_DATA,
@@ -8,6 +9,15 @@ const changeHomeData = (result) => ({
     recommendList: result.recommendList
 })
 
+const addArticleData = (list, nextPage) => ({
+    type: ADD_ARTICLE_DATA,
+    articleList: fromJS(list),
+    nextPage
+})
+
+/**
+ * 获取首页信息
+ */
 export const getHomeInfo = () => {
     return (dispatch) => {
         axios.get('/api/home.json').then((res) => {
@@ -15,6 +25,21 @@ export const getHomeInfo = () => {
             dispatch(changeHomeData(result));
         }).catch(() => {
             console.log("/api/home.json 网络请求错误");
+        })
+    }
+}
+
+/**
+ * 获取更多文章
+ * @param {*} page 
+ */
+export const getMoreList = (page) => {
+    return (dispatch) => {
+        axios.get('/api/homeList.json?page=' + page).then((res) => {
+            const list = res.data.data;
+            dispatch(addArticleData(list, page + 1));
+        }).catch(() => {
+            console.log("/api/homeList.json 网络请求错误");
         })
     }
 }

@@ -206,3 +206,18 @@ export const ViewAllWrapper = styled.div`
     background: #f7f7f7;
     border-radius: 6px;
 `;
+
+/**
+ * 阅读更多
+ */
+export const LoadMore = styled.div`
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    background: #a5a5a5;
+    margin: 30px 0 60px;
+    border-radius: 20px;
+`;
