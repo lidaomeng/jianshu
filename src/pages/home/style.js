@@ -18,6 +18,7 @@ export const HomeLeft = styled.div`
     .banner-img{
         width: 625px;
         height: 270px;
+        border-radius: 10px;
     }
 `;
 
@@ -45,7 +46,6 @@ export const TopicItem = styled.div`
     line-height: 32px;
     font-size: 14px;
     background: #f7f7f7;
-    // color: #000;
     border: 1px solid #dcdcdc;
     border-radius: 4px;
     padding-right: 10px;
@@ -112,7 +112,6 @@ export const RecommendItem = styled.div`
 export const WriterWrapper = styled.div`
     width: 280px;
     margin-bottom: 20px;
-    // background: pink;
 `;
 export const WriterItem = styled.div`
     position: relative;
@@ -166,7 +165,7 @@ export const DownloadAppWrapper = styled.div`
     background: #fff;
     padding: 10px 20px;
     margin-bottom: 30px;
-    
+    border-radius: 5px;
     .pic{
         display: block;
         float: left;

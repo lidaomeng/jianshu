@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
 import {
     HomeWrapper,
     HomeLeft,
@@ -12,6 +11,7 @@ import Recommend from './component/Recommend';
 import Writer from './component/Writer';
 import DownloadApp from './component/DownloadApp';
 import ViewAll from './component/ViewAll';
+import { actionCreators } from './store'
 
 class Home extends Component{
     render() {
@@ -36,25 +36,13 @@ class Home extends Component{
      * 钩子
      */
     componentDidMount() {
-        axios.get('/api/home.json').then((res) => {
-            const result = res.data.data;
-            console.log("result", result);
-            
-            const action = {
-                type: 'change_home_data',
-                topicList: result.topicList,
-                articleList: result.articleList,
-                recommendList: result.recommendList
-            }
-            this.props.changeHomeData(action);
-        }).catch(() => {
-            console.log("/api/home.json 网络请求错误");
-        });
+        this.props.changeHomeData();
     }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    changeHomeData(action) {
+    changeHomeData() {
+        const action = actionCreators.getHomeInfo();
         dispatch(action);
     }
 });
