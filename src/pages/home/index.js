@@ -8,6 +8,8 @@ import Topic from './component/Topic';
 import List from './component/List';
 import Recommend from './component/Recommend';
 import Writer from './component/Writer';
+import DownloadApp from './component/DownloadApp';
+import ViewAll from './component/ViewAll';
 
 class Home extends Component{
     render() {
@@ -20,7 +22,9 @@ class Home extends Component{
                 </HomeLeft>
                 <HomeRight>
                     <Recommend />
+                    <DownloadApp />
                     <Writer />
+                    <ViewAll />
                 </HomeRight>
             </HomeWrapper>
         )

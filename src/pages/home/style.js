@@ -28,6 +28,7 @@ export const HomeRight = styled.div`
     // background: pink;
     // margin-left: 40px;
     padding-top: 30px;
+    margin-bottom: 40px;
 `;
 
 /**
@@ -98,11 +99,112 @@ export const ListInfo = styled.div`
 export const RecommendWrapper = styled.div`
     margin-top: -4px;
     padding-bottom: 4px;
-    // background: #bfa;
 `;
 export const RecommendItem = styled.div`
     width: 280px;
     height: 50px;
     background: url(${(props) => props.imgUrl});
     background-size: contain;
+    margin-bottom: 6px;
+`;
+
+/**
+ * 推荐作者
+ */
+export const WriterWrapper = styled.div`
+    width: 280px;
+    margin-bottom: 20px;
+    // background: pink;
+`;
+export const WriterItem = styled.div`
+    position: relative;
+    width: 280px;
+    margin-top: 15px;
+    .writer-pic{
+        display: block;
+        float: left;
+        width: 48px;
+        height: 48px;
+        margin-right: 10px;
+        border-radius: 50%;
+    }
+    .note{
+        display: block;
+        position: absolute;
+        top: 5px;
+        right: 0;
+        color: #42c02e;
+        text-decoration: none;
+        font-size: 13px;
+        line-height: 18px;
+        margin-top: 5px;
+    }
+    .title{
+        display: block;
+        font-size: 14px;
+        line-height: 25px;
+        color: #333;
+        padding-top: 5px;
+        margin-right: 60px;
+    }
+    .desc{
+        display: block;
+        font-size: 12px;
+        line-height: 20px;
+        color: #969696;
+        margin: 2px 0 10px;
+    }
+`;
+
+/**
+ * 二维码扫描部分
+ */
+export const DownloadAppWrapper = styled.div`
+    display:table;
+    width: 280px;
+    height: 82px;
+    box-sizing: border-box;
+    border: 1px solid #f0f0f0;
+    background: #fff;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    
+    .pic{
+        display: block;
+        float: left;
+        width: 60px;
+        height: 60px;
+        margin-right: 7px;
+    }
+    .content{
+        display: table-cell;
+        vertical-align: middle;
+        .title{
+            font-size: 15px;
+            line-height: 21px;
+            color: #333;
+        }
+        .desc{
+            font-size: 13px;
+            line-height: 18px;
+            color: #999;
+            margin-top: 4px;
+        }
+    }
+`;
+
+/**
+ * 查看全部
+ */
+export const ViewAllWrapper = styled.div`
+    display: block;
+    line-height: 18px;
+    width: 280px;
+    box-sizing: border-box;
+    border: 1px solid #dcdcdc;
+    padding: 7px 7px 7px 12px;
+    font-size: 13px;
+    color: #787878;
+    text-align: center;
+    background: #f7f7f7;
 `;
