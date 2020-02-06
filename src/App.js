@@ -15,9 +15,7 @@ class App extends PureComponent{
         <Provider store={store}>
             <div>
               <GlobalStyled />
-              <GlobalStyled2 />
-              
-
+              <GlobalStyled2 /> 
               <BrowserRouter>
                 <div>
                   <Header />
