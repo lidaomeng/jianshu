@@ -52,20 +52,16 @@ export const Desc = styled.div`
     }
     .attention{
         float: left;
-        // background: pink;
         margin-left: 8px;
         .attention-title{
             margin-bottom: 6px;
             span{
-                // background: #bfa;
                 margin-right: 8px;
                 font-weight: bold;
                 a{
-                    // background: #0ff;
                     font-size: 16px;
                     line-height: 18px;
                     color: #404040;
-                    
                 }
             }
             button{
@@ -83,7 +79,6 @@ export const Desc = styled.div`
                 }
             }
         }
-
         .attention-desc{
             font-size: 13px;
             line-height: 18px;
@@ -95,5 +90,41 @@ export const Desc = styled.div`
                 margin-right: 10px;
             }
         }
+    }
+`;
+
+/**
+ * 内容部分
+ */
+export const Article = styled.div`
+    width: 100%;
+    margin-bottom: 20px;
+`;
+
+export const Paragraph = styled.div`
+    font-size: 16px;
+    line-height: 28px;
+    color: #404040;
+    margin-bottom: 20px;
+`;
+
+export const FigureImage = styled.div`   
+    width: 100%; 
+    text-align: center;
+    padding-bottom: 25px;
+    img{
+        display: block;
+        margin: 0 auto;
+        margin: 0 auto;
+    }
+    .image-caption{
+        display: inline-block;
+        vertical-align:middle; 
+        font-size: 13px;
+        line-height: 43px;
+        color: #999;
+        padding: 10px;
+        margin: 0 auto;
+        border-bottom: 1px solid #eee;
     }
 `;
