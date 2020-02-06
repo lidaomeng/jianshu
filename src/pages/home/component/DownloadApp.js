@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {
     DownloadAppWrapper
 } from '../style';
 
-class DownloadApp extends Component{
+class DownloadApp extends PureComponent{
     render() {
         return (
             <DownloadAppWrapper>

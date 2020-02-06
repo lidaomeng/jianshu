@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import { connect } from 'react-redux'; 
+import { Link } from 'react-router-dom';
 import { actionCreators } from '../store';
 import {
     ListItem,
@@ -7,20 +8,22 @@ import {
     LoadMore
 } from '../style';
 
-class List extends Component{
+class List extends PureComponent{
     render() {
         const { page, list, getMoreList } = this.props;
         return (
             <div>
                 {
                     list.map((item, index) => (
-                        <ListItem key={index}>
-                            <img className='list-pic' src={item.get('imgUrl')} alt='' />
-                            <ListInfo>
-                                <h3 className='title'>{item.get('title')}</h3>
-                                <p className='desc'>{item.get('desc')}</p>
-                            </ListInfo>
-                        </ListItem>
+                        <Link key={index} to='/detail'>
+                            <ListItem>
+                                <img className='list-pic' src={item.get('imgUrl')} alt='' />
+                                <ListInfo>
+                                    <h3 className='title'>{item.get('title')}</h3>
+                                    <p className='desc'>{item.get('desc')}</p>
+                                </ListInfo>
+                            </ListItem>
+                        </Link>  
                     ))
                 }
                 <LoadMore onClick={() => getMoreList(page)}>阅读更多</LoadMore>

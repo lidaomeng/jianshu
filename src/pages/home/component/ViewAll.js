@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {
     ViewAllWrapper
 } from '../style';
 
-class ViewAll extends Component{
+class ViewAll extends PureComponent{
     render() {
         return (
             <ViewAllWrapper>

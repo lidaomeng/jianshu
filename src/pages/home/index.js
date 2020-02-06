@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import { connect } from 'react-redux';
 import {
     HomeWrapper,
@@ -14,7 +14,7 @@ import DownloadApp from './component/DownloadApp';
 import ViewAll from './component/ViewAll';
 import { actionCreators } from './store'
 
-class Home extends Component{
+class Home extends PureComponent{
     render() {
         const { showScroll } = this.props;
         return (

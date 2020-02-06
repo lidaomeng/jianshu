@@ -77,7 +77,6 @@ export const ListItem = styled.div`
 `;
 export const ListInfo = styled.div`
     width: 458px;
-    // float: left;
     .title{
         line-height: 27px;
         font-size: 18px;

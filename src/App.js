@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { PureComponent } from 'react';
 import {GlobalStyled} from './style';
 import {GlobalStyled2} from './statics/iconfont/iconfont';
 import { Provider } from 'react-redux';
@@ -9,17 +9,18 @@ import store from './store';
 
 import Header from './common/header'
 
-class App extends Component{
+class App extends PureComponent{
   render() {
     return (
         <Provider store={store}>
             <div>
               <GlobalStyled />
               <GlobalStyled2 />
-              <Header />
+              
 
               <BrowserRouter>
                 <div>
+                  <Header />
                   <Route path='/' exact component={Home}></Route>
                   <Route path='/detail' exact component={Detail}></Route>
                 </div>
