@@ -221,3 +221,18 @@ export const LoadMore = styled.div`
     margin: 30px 0 60px;
     border-radius: 20px;
 `;
+
+/**
+ * 回到顶部
+ */
+export const BackTop = styled.div`
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 1px solid #dcdcdc;
+    cursor: pointer;
+`;

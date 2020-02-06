@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { fromJS } from 'immutable'; 
-import { CHANGE_HOME_DATA, ADD_ARTICLE_DATA } from './constants';
+import { CHANGE_HOME_DATA, ADD_ARTICLE_DATA, TOGGLE_SHOW_SCROLL } from './constants';
 
 const changeHomeData = (result) => ({
     type: CHANGE_HOME_DATA,
@@ -43,3 +43,11 @@ export const getMoreList = (page) => {
         })
     }
 }
+
+/**
+ * 是否显示【Back-Top】
+ */
+export const toggleScrollShow = (show) => ({
+    type: TOGGLE_SHOW_SCROLL,
+    show
+})
