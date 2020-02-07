@@ -9,6 +9,19 @@ const changeList = (data) => ({
 });
 
 /**
+ * 下面的写法和上面的写法效果一样！
+ */
+const changeList2 = (data) => {
+    return (
+        {
+            type: constants.CHANGE_LIST,
+            data: fromJS(data),
+            totalPage: Math.ceil(data.length/5)
+        }
+    );
+};
+
+/**
  * 下面的函数需要导出
  */
 export const searchFocus = () => ({
@@ -32,10 +45,14 @@ export const changePage = (page) => ({
     page
 });
 
+/**
+ * return一个函数，且这个函数的形参是dispatch
+ */
 export const getItemList = () => {
     return (dispatch) => {
         axios.get('/api/headerList.json').then( (res) => {
-            dispatch(changeList(res.data.data));
+            const headerList = res.data.data;
+            dispatch(changeList(headerList));
         }).catch( () => {
             console.log('error')
         });

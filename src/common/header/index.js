@@ -20,13 +20,59 @@ import {
 } from './style';
 
 
+/**
+ * Header组件
+ */
 class Header extends Component{
+    render() {
+        const { focused, list, handleInputFocus, handleInputBlur } = this.props;
+        return (
+            <HeaderWrapper>
+                <Link to='/'>
+                    <Logo />
+                </Link>
+                
+                <Nav>
+                    <NavItem className={'left active'}>首页</NavItem>
+                    <NavItem className={'left'}>下载App</NavItem>
+                    <NavItem className={'right'}>登录</NavItem>
+                    <NavItem className={'right'}>
+                        <i className={'iconfont'}>&#xe636;</i>
+                    </NavItem>
+                    <SearchWrapper>
+                        <CSSTransition
+                            in={focused}
+                            timeout={200}
+                            classNames="fuck"
+                        >
+                            <NavSearch 
+                                className={focused ? 'focused' : ''}
+                                onFocus={() => handleInputFocus(list)} 
+                                onBlur={handleInputBlur}
+                            >
+                            </NavSearch>
+                        </CSSTransition>
+                        <i className={focused ? 'focused iconfont zoom' : 'iconfont zoom'}>&#xe6e4;</i>
+                        {/* 热门搜索 */}
+                        {this.getListArea()}
+                    </SearchWrapper>   
+                    
+                </Nav>
+                <Addition>
+                    <Button className={'writing'}>
+                        <i className={'iconfont'}>&#xe6e5;</i>
+                        &nbsp;写文章
+                    </Button>
+                    <Button className={'reg'}>注册</Button>
+                </Addition>
+            </HeaderWrapper>
+        )
+    }
+
     getListArea() {
         const { focused, list, mouseIn, page, totalPage, handleMouseEnter, handleMouseLeave, handleChangePage } = this.props;
-
         const newList = list.toJS();
         const pageList = [];
-
         if (newList.length > 0) {
             /**
              * 此处有bug
@@ -41,7 +87,6 @@ class Header extends Component{
                 )
             }
         }
-
         if (focused || mouseIn) {
             return (
                 <SearchInfo
@@ -65,57 +110,6 @@ class Header extends Component{
         } else {
             return null;
         }
-    }
-
-    render() {
-        const { focused, list, handleInputFocus, handleInputBlur } = this.props;
-        return (
-            <HeaderWrapper>
-                <Link to='/'>
-                    <Logo />
-                </Link>
-                
-                <Nav>
-                    <NavItem className={'left active'}>首页</NavItem>
-                    <NavItem className={'left'}>下载App</NavItem>
-                    <NavItem className={'right'}>登录</NavItem>
-                    <NavItem className={'right'}>
-                        <i className={'iconfont'}>&#xe636;</i>
-                    </NavItem>
-                    {/* 
-                    focus动画
-                     */}
-                    <SearchWrapper>
-                        <CSSTransition
-                            in={focused}
-                            timeout={200}
-                            classNames="fuck"
-                        >
-                            <NavSearch 
-                                className={focused ? 'focused' : ''}
-                                /**
-                                 * () => handleInputFocus(list) 这是什么语法？
-                                 */
-                                onFocus={() => handleInputFocus(list)} 
-                                onBlur={handleInputBlur}
-                            >
-                            </NavSearch>
-                        </CSSTransition>
-                        <i className={focused ? 'focused iconfont zoom' : 'iconfont zoom'}>&#xe6e4;</i>
-                        {/* 热门搜索 */}
-                        {this.getListArea()}
-                    </SearchWrapper>   
-                    
-                </Nav>
-                <Addition>
-                    <Button className={'writing'}>
-                        <i className={'iconfont'}>&#xe6e5;</i>
-                        &nbsp;写文章
-                    </Button>
-                    <Button className={'reg'}>注册</Button>
-                </Addition>
-            </HeaderWrapper>
-        )
     }
 }
 

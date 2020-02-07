@@ -6,8 +6,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Home from './pages/home';
 import Detail from './pages/detail';
 import store from './store';
-
-import Header from './common/header'
+import Header from './common/header';
+import Register from './pages/register';
+import Login from './pages/login';
 
 class App extends PureComponent{
   render() {
@@ -21,6 +22,9 @@ class App extends PureComponent{
                   <Header />
                   <Route path='/' exact component={Home}></Route>
                   <Route path='/detail' exact component={Detail}></Route>
+
+                  <Route path='/register' exact component={ Register }></Route>
+                  <Route path='/login' exact component={ Login }></Route>
                 </div>
               </BrowserRouter>
             </div>

@@ -1,6 +1,9 @@
 import * as constants from './constants';
 import { fromJS } from 'immutable'; 
 
+/**
+ * 数据驱动DOM。下面的几个数据是核心！！！
+ */
 const defaultStore = fromJS({
     focused: false,
     list: [],
