@@ -29,7 +29,7 @@ class Login extends PureComponent{
                             <i className={'iconfont'}>&#xe67f;</i>
                         </Input>
                         <Input>
-                            <input placeholder='密码' className='second'></input> 
+                            <input placeholder='密码' className='second' type='password'></input> 
                             <i className={'iconfont'}>&#xe608;</i>
                         </Input>
                         <Button>登录</Button>

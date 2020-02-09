@@ -118,7 +118,6 @@ export const MoreLogin = styled.div`
                 img{
                     display: block;
                     height: 30px;
-                    height: 30px;
                 }
             }
         }
